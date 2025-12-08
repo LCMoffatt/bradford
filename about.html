@@ -17,21 +17,171 @@
                <p class="lead mb-4">A digital version of <em>A Prosopography of Lacedaemonians from the Death of Alexander the Great, 323 B.C., to the Sack of Sparta by Alaric, A.D.
                396</em>, by Alfred S. Bradford (C. H. Beck, 1977).</p>
                <p>Revised and updated.</p>
-               <p>Data available in TEI XML format at <a href="#">[Link]</a>.</p>
+               <p>Data available in TEI XML format in the <a href="https://github.com/sjhuskey/bradford">GitHub repository</a>.</p>
             </div>
          </div>
          <div class="col-lg-6 mx-auto">
-            <h2 class="mb-4 text-center">Acknowledgments</h2>
-            <p>Thanks to the following people for their help in creating this website:</p>
-            <div class="justify-content-start">
-                <ul>
-                    <li><a href="#">[Name], [Title], [Institution]</a></li>
-                    <li><a href="#">[Name], [Title], [Institution]</a></li>
-                    <li><a href="#">[Name], [Title], [Institution]</a></li>
-                </ul>
+            <p>This site is part of a larger effort to demonstrate potential workflows
+               for creating a Minimally Viable Project (MVP), that is, a digital
+               project that requires minimal resources for its creation, maintenance,
+               and preservation. For a good overview of this approach, see the <a href="https://lib-static.github.io/">Lib-Static
+                  site</a>.</p>
+            <p>In this instance, <a href="https://www.ou.edu/cas/history/people/faculty/alfred-bradford">Professor
+                  Alfred S. Bradford</a> wants to update his prosopography of the
+               Lacedaemonians. Although a printed prosopography is a useful resource,
+               it is not easily searchable or accessible to a wide audience. Therefore,
+               it makes sense to publish a new edition of the work in digital form.</p>
+            <p>Bradford recreated his original work using Microsoft Word, which is
+               technically a digital format, but it only merits one star for Linked
+               Open Data, according to <a href="https://www.w3.org/DesignIssues/LinkedData">Sir Tim
+                  Berners-Lee</a>’s formulation:</p>
+            <blockquote>
+               <p>⭐️ Available on the web (whatever format) but with an open licence,
+                  to be Open Data</p>
+            </blockquote>
+            <blockquote>
+               <p>⭐️⭐️ Available as machine-readable structured data (e.g. excel
+                  instead of image scan of a table)</p>
+            </blockquote>
+            <blockquote>
+               <p>⭐️⭐️⭐️ as (2) plus non-proprietary format (e.g. CSV instead of
+                  excel)</p>
+            </blockquote>
+            <blockquote>
+               <p>⭐️⭐️⭐️⭐️ All the above plus, Use open standards from W3C (RDF and
+                  SPARQL) to identify things, so that people can point at your stuff</p>
+            </blockquote>
+            <blockquote>
+               <p>⭐️⭐️⭐️⭐️⭐️ All the above, plus: Link your data to other people’s data
+                  to provide context</p>
+            </blockquote>
+            <p>The aim of this project is ultimately to be fully compliant with
+               those best practices. The more immediate goal, however, is to transform
+               the original Word document into structured data of some kind.</p>
+            <h2 id="the-original-file">The original file</h2>
+            <p>The information in the <a href="https://github.com/sjhuskey/bradford/blob/main/sources/prosopography.docx">original
+                  Word document</a> has an idiosyncratic structure.</p>
+            <ul>
+               <li>It is organized alphabetically by name</li>
+               <li>Each entry begins with a table with a single row and two columns:
+                  one for the name, the other for the <a href="https://en.wikipedia.org/wiki/Floruit">floruit</a> of the
+                  individual.</li>
+               <li>The second line, outside of the table, contains sources of
+                  information. If there is more than one source, the sources are separated
+                  by semicolons. The sources usually have a superscript letter to
+                  distinguish them. That superscript letter applies only to that person.
+                  In other words, the superscript series starts over with each
+                  person.</li>
+               <li>Any additional lines contain facts about the individual named in
+                  first line, with references to the sources in the second line. The
+                  references take the form of superscript letters corresponding to the
+                  letters used in the second line.</li>
+            </ul>
+            <p>Here is an example:</p>
+            <figure>
+               <img src="media/original-entry.png" title="An example of an entry in the original file"
+                  alt="An example of an entry in the original file" />
+               <figcaption aria-hidden="true">An example of an entry in the original
+                  file</figcaption>
+            </figure>
+            <h2 id="the-structured-data-version">The structured data version</h2>
+            <p>In consultation with a team of <a href="https://libraries.ou.edu/units/digital-scholarship-and-data-services">digital
+                  scholarship specialists</a> at the <a href="https://libraries.ou.edu/">University of Oklahoma Libraries</a>, I
+               converted the <a href="https://github.com/sjhuskey/bradford/blob/main/sources/prosopography.docx">original
+                  Word document</a> into an <a href="https://en.wikipedia.org/wiki/XML">XML file</a> using the <a
+                  href="https://tei-c.org/">Text Encoding Initiative</a>’s <a href="https://github.com/TEIC/Stylesheets">XSLT
+                  Stylesheets</a>. That
+               merely reproduced the features of the original Word file in TEI XML.
+               With the help of <a href="https://chatgpt.com/">ChatGPT</a> (5.1), I
+               generated a custom XSLT to convert the tables and paragraphs into
+               <code>person</code> elements:
+            </p>
+            <div class="sourceCode" id="cb1">
+               <pre
+                  class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">person</span> <span class="ot">xml:id=</span><span class="st">&quot;grp-38&quot;</span>&gt;</span>
+            <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">name</span>&gt;Γάιος Ἰούλιος Ἀγαθοκλῆς (8)&lt;/<span class="kw">name</span>&gt;</span>
+            <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">floruit</span>&gt;MID-LATE II AD&lt;/<span class="kw">floruit</span>&gt;</span>
+            <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span>&gt;Rizakis #414; IG V 1. 46&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;a&lt;/<span class="kw">hi</span>&gt;, 534&lt;<span class="kw">hi</span></span>
+            <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;b&lt;/<span class="kw">hi</span>&gt;, 591&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;c&lt;/<span class="kw">hi</span>&gt;; SEG XI 518 (C.</span>
+            <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        Julius &lt;/<span class="kw">note</span>&gt;</span>
+            <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span>&gt;[Agatho]kles)&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;d&lt;/<span class="kw">hi</span>&gt;</span>
+            <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
+            <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span>&gt;Son of [Hi]ppothraes (2)&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;b&lt;/<span class="kw">hi</span>&gt;</span>
+            <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
+            <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span>&gt;Father of Julia Etymokledaia (1)&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;bc&lt;/<span class="kw">hi</span>&gt;</span>
+            <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
+            <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span>&gt;Grandfather of Claudia Philokrat[ia] (2)&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;b&lt;/<span class="kw">hi</span>&gt;</span>
+            <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
+            <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span>&gt;Eponymous patronomos (ca. 165/6 or later)&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;ad&lt;/<span class="kw">hi</span>&gt;</span>
+            <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
+            <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span>&gt;Subject of an honorary decree&lt;<span class="kw">hi</span> <span class="ot">rend=</span><span class="st">&quot;superscript&quot;</span>&gt;b&lt;/<span class="kw">hi</span>&gt;</span>
+            <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
+            <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">person</span>&gt;</span></code></pre>
             </div>
+            <p>In this way, each <code>person</code> has a unique
+               <code>xml:id</code>, the floruit is encoded appropriately with
+               <code>floruit</code>, and the <code>note</code> elements are at least
+               visually linked by preserving the original scheme of locally-scoped
+               superscript notations.
+            </p>
+            <p>Moreover, each letter of the alphabet is the <code>head</code> for a
+               <code>listPerson</code> that contains all the relevant
+               <code>person</code> elements.
+            </p>
+            <h2 id="html-version">HTML version</h2>
+            <p>Again with the help of ChatGPT (5.1), I generated another <a
+                  href="https://github.com/sjhuskey/bradford/blob/main/sources/custom-xslt.xsl">XSLT
+                  to transform the XML into a set of static HTML files</a>: an index and
+               one for each letter of the alphabet.</p>
+            <p>To make the pages responsive to different screen sizes, I used the <a href="https://getbootstrap.com/">Bootstrap</a>
+               framework, adding a
+               sticky <a href="https://getbootstrap.com/docs/5.3/examples/sticky-footer/">footer</a>.</p>
+            <p>These static HTML files can be viewed locally or they can be hosted
+               on basic service such as GitHub pages, as they are currently at <a
+                  href="https://sjhuskey.info/bradford">https://sjhuskey.info/bradford</a>.</p>
+            <h2 id="next-steps">Next steps</h2>
+            <p>The first step is to proofread this version of the data. Another
+               version has been carefully reviewed by two undergraduate research
+               assistants. For various technical reasons, it was difficult to merge
+               that version into this one. There are plans to hire another assistant to
+               compare the versions and modify the XML document accordingly.</p>
+            <p>After synchronizing the two versions and making sure that the
+               canonical XML file is correct and up to date, we plan to generate
+               another XSLT to transform the XML file into RDF triples and/or <a href="https://json-ld.org/">JSON-LD</a>. That will
+               necessitate:</p>
+            <ul>
+               <li>Refining the <code>person</code> elements to make better use of the
+                  <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-person.html">relevant
+                     TEI elements and attributes</a>
+               </li>
+               <li>Selecting metadata terms and building an ontology</li>
+               <li>Creating a lightweight SPARQL endpoint for querying the RDF
+                  graph</li>
+            </ul>
+            <h2 id="acknowledgments">Acknowledgments</h2>
+            <p>In addition to Alfred S. Bradford, who did the research and
+               scholarship to produce the content represented here, the following
+               people have been instrumental at various stages of this project:</p>
+            <h3 id="university-of-oklahoma-libraries">University of Oklahoma
+               Libraries</h3>
+            <ul>
+               <li>Jessica Davila, Associate Dean for Digital Strategies &amp;
+                  Innovation, OU Libraries</li>
+               <li>Tyler Pearson, Director, Digital Scholarship and Data Services</li>
+               <li>Varun Sayapaneni, Research Informatics Specialist, OU Libraries</li>
+               <li>Bennie Stoll, formerly of OU Libraries, now at the University of
+                  California, Long Beach</li>
+               <li>Brianna Wright, Digital Scholarship Librarian, OU Libraries</li>
+            </ul>
+            <h3 id="student-assistants">Student Assistants</h3>
+            <ul>
+               <li>Victoria Smith, Classics and Letters undergraduate</li>
+               <li>Josie Callen, Classics and Letters undergraduate</li>
+            </ul>
+            <p>Danni McCutchen, Administrative and Financial Coordinator for the
+               Department of History at the University of Oklahoma, provided
+               administrative support for hiring the students.</p>
          </div>
-         
       </div>
 <footer class="footer mt-auto py-3 bg-body-tertiary">
     <div class="container"> <span class="text-body-secondary">© 2025 Steve Bradford.</span> </div>
