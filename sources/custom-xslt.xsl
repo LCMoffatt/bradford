@@ -221,6 +221,11 @@
         <sup><xsl:apply-templates mode="inline"/></sup>
     </xsl:template>
     
+    <!-- Italics -->
+    <xsl:template match="tei:hi[@rend=('italic','em')]" mode="inline">
+        <em><xsl:apply-templates mode="inline"/></em>
+    </xsl:template>
+    
     <!-- Other hi -->
     <xsl:template match="tei:hi" mode="inline">
         <span class="{@rend}"><xsl:apply-templates mode="inline"/></span>
