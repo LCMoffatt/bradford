@@ -51,14 +51,13 @@ That XML is the basis for the web version of the prosopography at <https://sjhus
 
 ## Teams: Reconciliation
 
-You will be added to a Microsoft Teams channel called "Reconciliation". It contains six files:
+You will be added to a Microsoft Teams channel called "Reconciliation". It contains six files that you may download for reference during the tasks described below.
 
 1. `newmvp1.docx`: one third of `prosopography.docx`, proofread by a previous research assistant
 2. `newmvp2-vs.docx`: one third of `prosopography.docx`, proofread by a previous research assistant
 3. `newmvp3-vs.docx`: one third of `prosopography.docx`, proofread by a previous research assistant
 4. `prosopography.docx`: Dr. Bradford's original Microsoft Word document
 5. `prosopography-data-spaces-removed.pdf`: a PDF version of Dr. Bradford's Microsoft Word document
-6. `prosopography-lacedaemonians.xml`: The XML file that you will edit.
 
 ## VS Code Setup
 
