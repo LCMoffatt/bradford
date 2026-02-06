@@ -18,7 +18,7 @@
    </teiHeader>
    <text>
       <body>
-         <listPerson xml:id="lucy">
+         <listPerson xml:id="alpha">
             <head>—A—</head>
             <person xml:id="grp-1">
                <name>A - ΦI (or AΡ - ΦI)</name>
@@ -283,8 +283,8 @@
                <note>Son of (Agathokles &lt;24&gt;)<hi rend="superscript">abcd</hi>
                </note>
                <note>Nomo(deiktes) in the years of Nikokrates (12)<hi rend="superscript">b</hi>, AD
-                  80/1-82/3, Kleo-</note>
-               <note>damos (3)<hi rend="superscript">c</hi>, 83/4-85/6, and C. Ju(lius) Charixenos
+                  80/1-82/3, Kleodamos
+                   (3)<hi rend="superscript">c</hi>, 83/4-85/6, and C. Ju(lius) Charixenos
                      (7)<hi rend="superscript">ad</hi>, ca. 90/1-92/3</note>
             </person>
             <person xml:id="grp-33">
