@@ -283,7 +283,7 @@
                <note>Son of (Agathokles &lt;24&gt;)<hi rend="superscript">abcd</hi>
                </note>
                <note>Nomo(deiktes) in the years of Nikokrates (12)<hi rend="superscript">b</hi>, AD
-                  80/1-82/3, Kleodamos
+                  80/1-82/3, Kleodamos <!-- Correction: removed hyphen and fixed broken line -->
                    (3)<hi rend="superscript">c</hi>, 83/4-85/6, and C. Ju(lius) Charixenos
                      (7)<hi rend="superscript">ad</hi>, ca. 90/1-92/3</note>
             </person>
@@ -708,7 +708,7 @@
                <note>Father of Ariston<hi rend="superscript">b</hi>
                </note>
                <note>Eurypontid king</note>
-               <note>Agasikles, as a contemporary of Leon, is supposed to have led the abor-</note>
+               <note>Agasikles, as a contemporary of Leon, is supposed to have led the abor-</note> <!-- Ask Huskey if this should be corrected or remain for formating -->
                <note>tive war against Tegea,<hi rend="superscript">c</hi> but Pausanias states that
                   he undertook no war. </note>
             </person>
@@ -810,8 +810,8 @@
                </note>
                <note>Son of Perikles (5)<hi rend="superscript">ab</hi>
                </note>
-               <note>Member of the cult of Poseidon of Taenarum in the year of Aristokrati
-                     das (1)<hi rend="superscript">b</hi>; gerousias in the year of Serippos (3)<hi
+               <note>Member of the cult of Poseidon of Taenarum in the year of Aristokratidas <!--Correction: Name sperated by line without hyphen? Reconnected for formatitng.-->
+                     (1)<hi rend="superscript">b</hi>; gerousias in the year of Serippos (3)<hi
                      rend="superscript">a</hi>
                </note>
             </person>
@@ -1076,7 +1076,7 @@
                <note style="text-align: justify;">Brother of Agis III and Eudamidas I</note>
                <note style="text-align: justify;">He was sent to Crete by Agis III in 333 with a
                   troop of mercenary </note>
-               <note style="text-align: justify;"> soldiers. </note>
+               <note style="text-align: justify;"> soldiers. </note> <!--Ask Huskey about this formatting-->
             </person>
             <person xml:id="grp-108">
                <name>Ἀγησίλαος</name>
